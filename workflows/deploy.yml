@@ -29,5 +29,5 @@ jobs:
       # Paso 2: Mostrar información sobre el runner
       - name: ¿Quién soy?
         run: |
-          echo "Este trabajo está corriendo en el host: $(hostname)"
+          echo "Este trabajo está corriendo en el host: $(hostname) asdasd"
           echo "El directorio de trabajo es: $PWD"
