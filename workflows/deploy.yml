@@ -1,0 +1,33 @@
+# Nombre del workflow, aparecerá en la pestaña "Actions" de GitHub
+name: Test de Runner en GKE
+
+# Eventos que disparan este workflow
+on:
+  # Se ejecuta cada vez que haces un 'push' a la rama principal (main/master)
+  push:
+    branches:
+      - develop
+      - main
+  
+  # Te permite ejecutar este workflow manualmente desde la interfaz de GitHub
+  workflow_dispatch:
+
+jobs:
+  # Nombre del trabajo
+  hola-mundo-gke:
+    # ¡Esta es la parte más importante!
+    # Aquí le decimos a GitHub que ejecute este trabajo en un runner que cumpla con estas etiquetas.
+    # 'self-hosted' asegura que use uno de tus runners, y 'gke-runner' es la etiqueta
+    # personalizada que definimos en nuestro 'RunnerDeployment.yaml'.
+    runs-on: [self-hosted, gke-runner]
+
+    steps:
+      # Paso 1: Un simple saludo
+      - name: Imprimir Saludo
+        run: echo "¡Hola Mundo desde mi runner auto-hospedado en GKE! 🎉"
+
+      # Paso 2: Mostrar información sobre el runner
+      - name: ¿Quién soy?
+        run: |
+          echo "Este trabajo está corriendo en el host: $(hostname)"
+          echo "El directorio de trabajo es: $PWD"
