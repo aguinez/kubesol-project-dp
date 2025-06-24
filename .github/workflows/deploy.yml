@@ -10,7 +10,7 @@ on:
 
 jobs:
   hola-mundo-gke:
-    runs-on: [self-hosted, gke-runner]
+    runs-on: [self-hosted, gke-runner, arc]
 
     steps:
       - name: Hello world
