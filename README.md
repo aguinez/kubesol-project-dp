@@ -6,4 +6,3 @@ bla
 test
 test inside sandbox msi
 test with new helm chart
-asd
